@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+  set_log_msg "No arguments supplied" --log-level "debug"
+else
+  set_log_msg "args: $*" --log-level "info"
+fi
+
+if [ -z ${1} ]; then
+    json_file=$(find -L ../data -name "*.json")
+else
+    json_file=${1}
+fi
+
+if [ -z ${2} ]; then
+    max_af_size=1800
+else
+    max_af_size=${2}
+fi

@@ -1,0 +1,61 @@
+[![Code Ocean Logo](images/CO_logo_135x72.png)](http://codeocean.com/product)
+
+<hr>
+
+# Create multimer fastas in CombFold
+
+This capsule is the first capsule in the CombFold pipeline, which predicts the structure of large protein complexes starting from the sequences of chains in the complex (up to at least 18,000 amino acids and 32 subunits). The pipeline uses AlphaFold-Multimer or [ColabFold](https://apps.codeocean.com/capsule/2197286/tree) to predict structures of "possible subcomplexes" which are combinations of subunits from the target complex. The CombFold Combinatorial Assembly algorithm assembles those structures into a single large complex.
+
+The pipeline has 4 stages:
+
+1. Defining subunits in the complex (this capsule)
+2. Predicting structures using AFM for all pairings of subunits (this capsule)
+3. [Optional] Predicting structures using AFM for larger groups of subunits ([other capsule](https://apps.codeocean.com/capsule/4299478/tree))
+4. Running the Combinatorial Assembly algorithm on all generated structures. ([other capsule](https://apps.codeocean.com/capsule/4299478/tree))
+
+## Input
+
+A json file that defines the protein complex.  Naively, each subunit should simply be a complete chain in the complex. In case a chain is long, it is required to cut it into several subunits. This can be done either naively, by dividing the chain into same-length subunits, or by using predictors for functional domains based on sequence. Another option is to predict disordered regions based on sequence(for example using IUPred3) and remove them and split the sequence on these regions.
+
+It must have the following 4 fields:
+
+- name: a unique name for the subunit
+- sequence: the amino acid sequence of the subunit
+- chain_names: a list of chain names representing also the stoichiometry of the subunit
+- start_res: the index of the start residue of the sequence on the chain. Needed to set constraints on other subunits on the same chains.
+for example:
+
+```
+{
+  "name": "AD1",
+  "chain_names": ["A", "B"],
+  "start_res": 20,
+  "sequence": "LTAAAQALDGLGDKFGRSIVDGNAILADVNPRMPQIRRDITGLANLGEVY"
+}
+```
+
+which defines a subunit named AD1 with 50 amino acids (the sequence length) and that has 2 copies in the complex (chains labeled A and B).
+
+## Output
+
+a folder with up to ((N+1)*N)/2 .fasta files that can each be used as input for AlphaFold Multimer or ColabFold.
+
+## App Panel Parameters
+
+- Input file
+- maximum number of residues that can be predicted using your prediction environment
+
+## Cite
+
+Ben Shor, Dina Schneidman-Duhovny. "Predicting structures of large protein assemblies using combinatorial assembly algorithm and AlphaFold2."
+https://www.biorxiv.org/content/10.1101/2023.05.16.541003v1
+
+## Source
+
+https://github.com/dina-lab3D/CombFold
+
+
+<hr>
+
+[Code Ocean](https://codeocean.com/) is a cloud-based computational platform that aims to make it easy for researchers to share, discover, and run code.<br /><br />
+[![Code Ocean Logo](images/CO_logo_68x36.png)](https://www.codeocean.com)
