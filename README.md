@@ -10,7 +10,7 @@ The pipeline has 4 stages:
 
 1. Defining subunits in the complex (this capsule)
 2. Predicting structures using AFM for all pairings of subunits (this capsule)
-3. [Optional] Predicting structures using AFM for larger groups of subunits ([other capsule](https://apps.codeocean.com/capsule/4299478/tree))
+3. [Optional] Predicting structures using AlphaFold-Multimer or [ColabFold](https://apps.codeocean.com/capsule/2197286/tree) for larger groups of subunits ([other capsule](https://apps.codeocean.com/capsule/4299478/tree))
 4. Running the Combinatorial Assembly algorithm on all generated structures. ([other capsule](https://apps.codeocean.com/capsule/4299478/tree))
 
 ## Input
@@ -23,7 +23,8 @@ It must have the following 4 fields:
 - sequence: the amino acid sequence of the subunit
 - chain_names: a list of chain names representing also the stoichiometry of the subunit
 - start_res: the index of the start residue of the sequence on the chain. Needed to set constraints on other subunits on the same chains.
-for example:
+
+For example:
 
 ```
 {
@@ -38,7 +39,8 @@ which defines a subunit named AD1 with 50 amino acids (the sequence length) and 
 
 ## Output
 
-a folder with up to ((N+1)*N)/2 .fasta files that can each be used as input for AlphaFold Multimer or ColabFold.
+- A folder with up to ((N+1)*N)/2 .fasta files that can each be used as input for AlphaFold Multimer or ColabFold.
+- A folder with run logs
 
 ## App Panel Parameters
 
