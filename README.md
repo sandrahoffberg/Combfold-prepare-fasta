@@ -40,7 +40,6 @@ which defines a subunit named AD1 with 50 amino acids (the sequence length) and 
 ## Output
 
 - A folder with up to ((N+1)*N)/2 .fasta files that can each be used as input for AlphaFold Multimer or ColabFold.
-- A folder with run logs
 
 ## App Panel Parameters
 

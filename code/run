@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 set -ex
 
-export CO_LOG=true
-export CO_LOG_LEVEL=debug
-
 # This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
 bash prep_fastas.sh "$@"

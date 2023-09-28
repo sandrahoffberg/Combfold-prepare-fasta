@@ -1,4 +1,4 @@
-# hash:sha256:dcbc0912cec5399ff8734627bb2927357635be592545a61c26b71f101bf5382f
+# hash:sha256:b3b0c3a1fb5c06e9e33cefca729f0a08faf56631658622ffe2f2511a9e78367a
 FROM registry.apps.codeocean.com/codeocean/mambaforge3:22.11.1-4-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -13,9 +13,6 @@ RUN apt-get update \
         libboost-all-dev=1.74.0.3ubuntu7 \
         make=4.3-4.1build1 \
     && rm -rf /var/lib/apt/lists/*
-
-RUN pip install -U --no-cache-dir \
-    code-ocean-aux-tools==1.1.0
 
 RUN pip3 install -U --no-cache-dir \
     biopython==1.81 \
