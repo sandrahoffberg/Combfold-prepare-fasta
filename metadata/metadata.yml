@@ -1,2 +1,12 @@
 metadata_version: 1
-name: CombFold- prepare
+name: CombFold- prepare fasta
+description: |-
+  This is the first of two CombFold capsules.  This capsule predicts structures using AlphaFold Multimer for all pairings of protein subunits.  It outputs fasta files which can be input for AlphaFold Multimer or ColabFold.
+
+  https://github.com/dina-lab3D/CombFold
+tags:
+- Proteomics
+- Structure
+- Protein
+authors:
+- name: Sandra Hoffberg

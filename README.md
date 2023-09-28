@@ -4,14 +4,14 @@
 
 # Create multimer fastas in CombFold
 
-This capsule is the first capsule in the CombFold pipeline, which predicts the structure of large protein complexes starting from the sequences of chains in the complex (up to at least 18,000 amino acids and 32 subunits). The pipeline uses AlphaFold-Multimer or [ColabFold](https://apps.codeocean.com/capsule/2197286/tree) to predict structures of "possible subcomplexes" which are combinations of subunits from the target complex. The CombFold Combinatorial Assembly algorithm assembles those structures into a single large complex.
+This capsule is the first capsule in the CombFold pipeline, which predicts the structure of large protein complexes starting from the sequences of chains in the complex (up to at least 18,000 amino acids and 32 subunits). The pipeline uses AlphaFold-Multimer or ColabFold ("Streamlit ColabFold All-In-One" capsule) to predict structures of possible subcomplexes which are combinations of subunits from the target complex. The CombFold Combinatorial Assembly algorithm assembles those structures into a single large complex.
 
 The pipeline has 4 stages:
 
 1. Defining subunits in the complex (this capsule)
 2. Predicting structures using AFM for all pairings of subunits (this capsule)
-3. [Optional] Predicting structures using AlphaFold-Multimer or [ColabFold](https://apps.codeocean.com/capsule/2197286/tree) for larger groups of subunits ([other capsule](https://apps.codeocean.com/capsule/4299478/tree))
-4. Running the Combinatorial Assembly algorithm on all generated structures. ([other capsule](https://apps.codeocean.com/capsule/4299478/tree))
+3. [Optional] Predicting structures using AlphaFold-Multimer or "Streamlit ColabFold All-In-One" capsule for larger groups of subunits ("CombFold- Combinatorial Assembly" capsule)
+4. Running the Combinatorial Assembly algorithm on all generated structures. ("CombFold- Combinatorial Assembly" capsule)
 
 ## Input
 
@@ -44,8 +44,12 @@ which defines a subunit named AD1 with 50 amino acids (the sequence length) and 
 
 ## App Panel Parameters
 
-- Input file
-- maximum number of residues that can be predicted using your prediction environment
+Input json file
+- [Default: ../data/subunits.json]
+
+Maximum number of residues
+- maximum number of residues that can be predicted using your prediction environment [Default: 1800]
+- CombFold has a maximum of up to at least 18,000 amino acids and 32 subunits
 
 ## Cite
 
@@ -56,6 +60,7 @@ https://www.biorxiv.org/content/10.1101/2023.05.16.541003v1
 
 https://github.com/dina-lab3D/CombFold
 
+Capsule adapted from https://codeocean.com/capsule/8791899/tree/v1
 
 <hr>
 

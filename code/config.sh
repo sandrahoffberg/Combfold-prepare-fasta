@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if [ $# -eq 0 ]; then
-  set_log_msg "No arguments supplied" --log-level "debug"
+  echo "No arguments supplied"
 else
-  set_log_msg "args: $*" --log-level "info"
+  echo "args: $*"
 fi
 
 if [ -z ${1} ]; then
