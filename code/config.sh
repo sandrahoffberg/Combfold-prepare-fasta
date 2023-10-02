@@ -17,6 +17,7 @@ else
     json_file=${1}
 fi
 
+json_count=$(echo $json_file | wc -w)
 
 if [ -z ${2} ]; then
     max_af_size=1800
