@@ -10,3 +10,4 @@ then
 
 else
     echo "This Capsule only accepts 1 json file at a time."
+fi
